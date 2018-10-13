@@ -6,9 +6,6 @@ export class Contact {
     public imageUrl;
     public group;
 
-    public Contact(contactId, name, email, phone, imageUrl, group){
-        
-    }
 }
 
 
