@@ -12,21 +12,33 @@ export class DocumentListComponent implements OnInit {
   documents: Document[] = [
     new Document(
       1,
-      "Bro. Jackson",
+      "CIT 260 - Object Oriented Programming",
       "He is fulltime",
       "https://web.byui.edu/Directory/Employee/jacksonk.jpg"),
 
       new Document(
         2,
-      "Bro. Barzee",
+      "CIT 366 - Full Stack Web Development",
       "he is part time",
       "https://web.byui.edu/Directory/Employee/jacksonk.jpg"),
 
       new Document(
         3,
-        "Brother Hill",
+        "CIT 425 - Data Wearhousing",
         "Adjucnct faculty",
         "https://web.byui.edu/Directory/Employee/jacksonk.jpg"),
+
+        new Document(
+          4,
+          "CIT 460 - Enterprise Development",
+          "Adjucnct faculty",
+          "https://web.byui.edu/Directory/Employee/jacksonk.jpg"),
+
+          new Document(
+            5,
+            "CIT 495 - Senior Practicum",
+            "Adjucnct faculty",
+            "https://web.byui.edu/Directory/Employee/jacksonk.jpg"),
     ];
 
   constructor() { }
