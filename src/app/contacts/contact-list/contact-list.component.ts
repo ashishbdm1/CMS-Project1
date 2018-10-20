@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Contact } from '../contact.model';
-
+import { ContactService } from '../contact.service';
 
 @Component({
   selector: 'app-contact-list',
@@ -10,29 +10,17 @@ import { Contact } from '../contact.model';
 export class ContactListComponent implements OnInit {
   @Output() contactWasSelected = new EventEmitter<Contact>();                                                                                                                                                                                                                                                                             
 
-  contacts: Contact[] = [
-    new Contact(
-      1,
-      "Bro. Jackson",
-      "jacksonk@byui.edu",
-      "208-496-3771",
-      "https://web.byui.edu/Directory/Employee/jacksonk.jpg",
-      null),
-    new Contact(
-      2,
-      "Bro. Barzee",
-      "barzeer@byui.edu",
-      "208-496-3768",
-      "https://web.byui.edu/Directory/Employee/barzeer.jpg",
-      null)
-  ];
-  constructor() {
+  contacts: Contact[] = [];
+
+  //This is how we inject the ContactsService to constructor function
+  constructor(private contactsService: ContactService) {
 
   }
 
   ngOnInit() {
-  }
-  onContactSelected(contact: Contact){
-    this.contactWasSelected.emit(contact);
+    //call the getContacts() function in the ContactsService and assign the array of contacts
+    //returned from the function to the contacts class variable in the
+    //ContactListComponent.
+    this.contacts = this.contactsService.getContacts();
   }
 }

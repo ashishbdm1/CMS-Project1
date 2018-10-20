@@ -18,6 +18,7 @@ import { MessageItemComponent } from './messages/message-item/message-item.compo
 import { MessageEditComponent } from './messages/message-edit/message-edit.component';
 import { MessageListComponent } from './messages/message-list/message-list.component';
 import { DropDownDirectives } from 'src/Shared/dropdown.directives';
+import { ContactService } from './contacts/contact.service';
 
 
 
@@ -38,13 +39,14 @@ import { DropDownDirectives } from 'src/Shared/dropdown.directives';
     MessageEditComponent,
     MessageListComponent,
     DropDownDirectives,
+    
 
 
   ],
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
