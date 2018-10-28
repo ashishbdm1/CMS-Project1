@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Output } from "@angular/core";
-import { Template } from "@angular/compiler/src/render3/r3_ast";
+import { Component } from "@angular/core";
 
 //decorator which enhances your class
 @Component({
@@ -7,10 +6,5 @@ import { Template } from "@angular/compiler/src/render3/r3_ast";
     templateUrl: './header.component.html'
 })
 export class headerComponent {
-   @Output() menuSelected = new EventEmitter<string>();
    
-    onSelect(headerMenu: string){
-        this.menuSelected.emit(headerMenu);
-    }
-    
 }

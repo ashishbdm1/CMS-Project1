@@ -1,6 +1,7 @@
-<app-header (menuSelected)="onNavigate($event)"></app-header>
+<app-header></app-header>
 <div class="container pull-left">
-<app-contacts *ngIf="loadedHeaderMenu === 'contact'"></app-contacts>
+        <router-outlet></router-outlet>
+<!-- <app-contacts *ngIf="loadedHeaderMenu === 'contact'"></app-contacts>
 <app-documents *ngIf="loadedHeaderMenu === 'document'"></app-documents>
-<app-messages *ngIf="loadedHeaderMenu === 'message'"></app-messages>
+<app-messages *ngIf="loadedHeaderMenu === 'message'"></app-messages> -->
 </div>

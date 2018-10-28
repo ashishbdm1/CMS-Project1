@@ -7,13 +7,15 @@ import { Document } from './document.model'
 })
 export class DocumentsService {
   documentSelected = new EventEmitter<Document>();
+  documentChangedEvent = new EventEmitter<Document>();
 
   documents: Document[] = [];
+
   getDocuments(){
     return this.documents.slice();
   }
-  getDocument(id: string){
-
+  getDocument(index: number){
+    return this.documents[index];
   }
   constructor() {
     this.documents = MOCKDOCUMENTS;

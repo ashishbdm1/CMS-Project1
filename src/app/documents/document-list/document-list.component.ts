@@ -8,18 +8,19 @@ import { DocumentsService } from '../documents.service';
   styleUrls: ['./document-list.component.css']
 })
 export class DocumentListComponent implements OnInit {
-@Output() documentWasSelected = new EventEmitter<Document>();
+@Output() documentChangedEvent = new EventEmitter<Document>();
 
   documents: Document[] = [];
 
-  constructor(private documentService: DocumentsService) { }
+  constructor(private documentService: DocumentsService) {
+    this.documents = this.documentService.getDocuments();
+   }
 
   ngOnInit() {
-    this.documents = this.documentService.getDocuments();
-  }
-  onDocumentSelected(document: Document){
-    this.documents = this.documentService.getDocuments();
-    // this.documentWasSelected.emit(document);
+    this.documentChangedEvent
+    .subscribe(
+      
+    )
   }
 
 }

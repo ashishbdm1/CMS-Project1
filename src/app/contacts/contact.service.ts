@@ -9,19 +9,20 @@ export class ContactService {
   contactSelected = new EventEmitter<Contact>();
 
   private contacts: Contact [] = [];
-  getContacts() {
-    return this.contacts.slice();
-  }
-  getContact(id: string){
-    // for(let contact of this.contacts){
-    //   if(contact === id){
-    //     return contact;
-    //   }
-    // }
-    // return null;
-  }
-
+  
   constructor() {
     this.contacts = MOCKCONTACTS;
    }
+  getContacts() {
+    return this.contacts.slice();
+  }
+  getContact(id: string): Contact{
+    for(const contact of this.contacts){
+      if(contact.id === id){
+        return contact;
+      }
+    }
+  }
+
+  
 }
