@@ -12,15 +12,11 @@ export class ContactListComponent implements OnInit {
 
   contacts: Contact[] = [];
 
-  //This is how we inject the ContactsService to constructor function
   constructor(private contactsService: ContactService) {
 
   }
 
   ngOnInit() {
-    //call the getContacts() function in the ContactsService and assign the array of contacts
-    //returned from the function to the contacts class variable in the
-    //ContactListComponent.
     this.contacts = this.contactsService.getContacts();
   }
 }

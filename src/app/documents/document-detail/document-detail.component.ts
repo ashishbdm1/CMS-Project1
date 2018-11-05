@@ -20,11 +20,15 @@ export class DocumentDetailComponent implements OnInit {
                 this.nativeWindow = windRefService.getNativeWindow();
               }
   onView(){
-    if(this.document.url){
+    if (this.document.url) {
       this.nativeWindow.open(this.document.url)
     }
   }
-              
+  
+  onDelete(){
+    this.documentService.deleteDocument(this.document.url); 
+  }
+
   ngOnInit() {
     this.route.params
     .subscribe(

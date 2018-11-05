@@ -9,6 +9,7 @@ import { DocumentsService } from '../documents.service';
 })
 export class DocumentListComponent implements OnInit {
 @Output() documentChangedEvent = new EventEmitter<Document>();
+id: string;
 
   documents: Document[] = [];
 
@@ -17,10 +18,13 @@ export class DocumentListComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.documentChangedEvent
+    this.documents = this.documentService.getDocuments();
+    this.documentService.documentChangedEvent
     .subscribe(
-      
-    )
+      (documents: Document[]) => {
+        this.documents = documents;
+      }
+    );
   }
 
 }

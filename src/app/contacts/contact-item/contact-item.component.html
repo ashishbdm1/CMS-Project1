@@ -1,9 +1,8 @@
 
-<a 
-class="list-group-item clearfix"
-  (click)="onSelected()">
+<a [routerLink]="[index]" class="list-group-item clearfix"
+(click)="onSelected()" >
   <div class="pull-left">
-    <h4 class="list-group-item-heading">{{ contact.name }}</h4>
+    <h4 [routerLink]="id" class="list-group-item-heading" >{{ contact.name }}</h4>
   </div>
   <span class="pull-right">
     <img src="{{ contact.imageUrl }}" alt="" class="{{ contact.name }}" style="max-height: 80px;">
