@@ -7,20 +7,20 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./document-edit.component.css']
 })
 export class DocumentEditComponent implements OnInit {
-  id: number;
-  editMode = false;
+  // id: number;
+  // editMode = false;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor() { }
 
   ngOnInit() {
-    this.route.params
-    .subscribe(
-      (params: Params) =>{
-        this.id = +params['id'];
-        this.editMode = params['id'] != null;
-        console.log(this.editMode);
-      }
-    )
+    // this.route.params
+    // .subscribe(
+    //   (params: Params) =>{
+    //     this.id = +params['id'];
+    //     this.editMode = params['id'] != null;
+    //     console.log(this.editMode);
+    //   }
+    // )
   }
 
 }

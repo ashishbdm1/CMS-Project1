@@ -14,7 +14,6 @@ id: string;
   documents: Document[] = [];
 
   constructor(private documentService: DocumentsService) {
-    this.documents = this.documentService.getDocuments();
    }
 
   ngOnInit() {

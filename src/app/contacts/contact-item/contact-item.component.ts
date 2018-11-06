@@ -8,7 +8,8 @@ import { ContactService } from '../contact.service';
   styleUrls: ['./contact-item.component.css']
 })
 export class ContactItemComponent implements OnInit {
-  @Input() contact: Contact;
+  @Input() contact: Contact[];
+
 
   constructor(private contactService: ContactService) { }
 
