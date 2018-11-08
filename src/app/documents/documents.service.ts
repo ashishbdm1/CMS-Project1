@@ -57,8 +57,6 @@ export class DocumentsService {
       }
     }
   }
-
-
   deleteDocument(document: Document){
     if (!document || !this.documents.includes(document)) {
       return;

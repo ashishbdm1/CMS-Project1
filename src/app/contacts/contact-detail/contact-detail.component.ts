@@ -17,12 +17,6 @@ export class ContactDetailComponent implements OnInit {
     private activatedRoute: ActivatedRoute) {
       
      }
-    //  navigate(){
-    //   if (this. contact.url) {
-    //     this.navigate.open(this.document.url)
-    //   }
-    // }
-
   onDelete(){
     this.contactService.deleteContact(this.contact); 
     this.router.navigate(['contats']);
