@@ -13,6 +13,8 @@ export class ContactService {
   contactListChangedEvent = new Subject<Contact[]>();
 
   private contacts: Contact [] = [];
+
+  
   
   deleteContact(contact: Contact) {
       if (contact === null){

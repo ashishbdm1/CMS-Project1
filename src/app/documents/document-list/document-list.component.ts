@@ -16,13 +16,6 @@ export class DocumentListComponent implements OnInit {
   subscription: Subscription;
 
   constructor(private documentService: DocumentsService) {
-    this.subscription = this.documentService.documentListChangedEvent
-    .subscribe(
-      (documents: Document[]) => {
-        this.documents = documents;
-      }
-    );
-    this.documents = this.documentService.getDocuments();
    }
 
    ngOnDestroy() {
@@ -37,6 +30,13 @@ export class DocumentListComponent implements OnInit {
     //     this.documents = documents;
     //   }
     // );
+    this.subscription = this.documentService.documentListChangedEvent
+    .subscribe(
+      (documents: Document[]) => {
+        this.documents = documents;
+      }
+    );
+    this.documents = this.documentService.getDocuments();
   }
 
 }
