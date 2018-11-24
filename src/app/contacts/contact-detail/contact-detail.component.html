@@ -1,13 +1,17 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h1>{{ contact.name }}</h1>
+    <h1>{{ contacts.name }}</h1>
     <div class="container">
       <div class="row">
         <div class="col-xs-5">
-          <img [src]="contact.imageUrl" alt="{{ contact.name }}" class="img-responsive">
-          <div class="">
-          <a class="btn btn-danger pull-right" style="margin-right:150px" (click)="onDelete()">Delete</a>
-          <a [routerLink]="['edit']" class="btn btn-primary pull-right" style="margin-right:10px">Edit</a>
+          <img [src]="contacts?.imageUrl" 
+          alt="{{ contact.name }}" 
+          class="img-responsive">
+          <div>
+          <a (click)="onDelete()" class="btn btn-danger pull-right" 
+          style="margin-right:150px">Delete</a>
+          <a [routerLink]="['edit']" class="btn btn-primary pull-right" 
+          style="margin-right:10px">Edit</a>
         </div>
         </div>
       </div>

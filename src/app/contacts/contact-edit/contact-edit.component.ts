@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-contact-edit',
@@ -16,6 +16,7 @@ export class ContactEditComponent implements OnInit {
   editMode: boolean = false;
   hasGroup: boolean = false;
   invalidGroupContact: boolean = false;
+  id: string;
   
 
   constructor(private contactService: ContactService,
@@ -25,22 +26,23 @@ export class ContactEditComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params
       .subscribe(
-        (params) => {
-          if (!params.id) {
+        (params: Params) => {
+          this.id = params['id'];
+          if (!this.id) {
             this.editMode = false;
-          } else {
-            this.originalContact = this.contactService.getContact(params.id);
+            return;
+          } 
+          
+          this.originalContact = this.contactService.getContact(params.id);
             if (!this.originalContact) {
               return;
             }
-
             this.editMode = true;
             this.contact = JSON.parse(JSON.stringify(this.originalContact));
             if (this.contact.group) {
               this.groupContacts = Object.assign(this.contact.group);
             }
           }
-        }
       );
   }
 
@@ -49,8 +51,10 @@ export class ContactEditComponent implements OnInit {
   }
 
   isInvalidContact(newContact: Contact){
-      if (!newContact) return true;
-      if (newContact.id === this.contact.id) return true;
+      if (!newContact) 
+      return true;
+      if (newContact.id === this.contact.id) 
+      return true;
       for (let i = 0; i < this.groupContacts.length; i++) {
         if (newContact.id === this.groupContacts[i].id) {
           return true;

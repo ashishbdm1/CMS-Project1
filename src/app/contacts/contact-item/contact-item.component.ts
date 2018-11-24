@@ -11,12 +11,12 @@ export class ContactItemComponent implements OnInit {
   @Input() contact: Contact[];
 
 
-  constructor(private contactService: ContactService) { }
+  constructor() { }
 
   ngOnInit() {
   }
-  onSelected(){
-    this.contactService.contactSelected.emit(this.contact);
-  }
+  // onSelected(){
+  //   this.contactService.contactSelected.emit(this.contact);
+  // }
 
 }

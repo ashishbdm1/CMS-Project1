@@ -12,10 +12,11 @@ export class DocumentListComponent implements OnInit {
 @Output() documentChangedEvent = new EventEmitter<Document[]>();
 // id: string;
 
-  documents: Document[] = [];
+  private documents: Document[] = [];
   subscription: Subscription;
 
   constructor(private documentService: DocumentsService) {
+    this.documentService.getDocuments();
    }
 
    ngOnDestroy() {
@@ -23,20 +24,12 @@ export class DocumentListComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.documents = this.documentService.getDocuments();
-    // this.documentService.documentChangedEvent
-    // .subscribe(
-    //   (documents: Document[]) => {
-    //     this.documents = documents;
-    //   }
-    // );
     this.subscription = this.documentService.documentListChangedEvent
     .subscribe(
       (documents: Document[]) => {
         this.documents = documents;
       }
     );
-    this.documents = this.documentService.getDocuments();
   }
 
 }

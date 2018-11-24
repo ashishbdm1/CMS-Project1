@@ -25,7 +25,9 @@ import { DocumentViewComponent } from './documents/document-view/document-view.c
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
 import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 import { FormsModule } from '@angular/forms';
-import { DndModule } from 'ng2-dnd'
+import { DndModule } from 'ng2-dnd';
+import { ContactsFilterPipe } from './contacts/contacts-filter.pipe'
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +48,7 @@ import { DndModule } from 'ng2-dnd'
     DocumentViewComponent,
     DocumentEditComponent,
     ContactEditComponent,
+    ContactsFilterPipe,
     
 
 
@@ -54,6 +57,7 @@ import { DndModule } from 'ng2-dnd'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     DndModule.forRoot()
   ],
   providers: [MessageListService, WindRefService, ContactDetailComponent],

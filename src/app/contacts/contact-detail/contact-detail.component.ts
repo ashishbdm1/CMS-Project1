@@ -9,28 +9,28 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./contact-detail.component.css']
 })
 export class ContactDetailComponent implements OnInit {
-  @Input() contact: Contact;
-  id: string;
+  contact: Contact;
 
   constructor(private contactService: ContactService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute) {
+              private router: Router,
+              private activatedRoute: ActivatedRoute) {
       
      }
-  onDelete(){
-    this.contactService.deleteContact(this.contact); 
-    this.router.navigate(['contats']);
-  }
+  
 
   ngOnInit() {
-    this.contactService.contactSelected
+    this.activatedRoute.params
     .subscribe(
       (params: Params) =>{
-      this.id = params['id'];
-        this.contact = this.contactService.getContact(this.id);
+      const id = params['id'];
+        this.contact = this.contactService.getContact(id);
      
       }
     )
+  }
+  onDelete(){
+    this.contactService.deleteContact(this.contact); 
+    this.router.navigate(['/contact'], { relativeTo: this.activatedRoute });
   }
 
 }

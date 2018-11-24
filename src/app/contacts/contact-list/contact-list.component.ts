@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
 import { Subscription } from 'rxjs/Subscription';
@@ -9,13 +9,13 @@ import { Subscription } from 'rxjs/Subscription';
   styleUrls: ['./contact-list.component.css']
 })
 export class ContactListComponent implements OnInit {
-  @Output() contactWasSelected = new EventEmitter<Contact>();                                                                                                                                                                                                                                                                             
+  // @Output() contactWasSelected = new EventEmitter<Contact>();                                                                                                                                                                                                                                                                             
 
   contacts: Contact[] = [];
   subscription: Subscription;
+  term: string;
 
   constructor(private contactService: ContactService) {
-
   }
 
   ngOnInit() {
@@ -26,6 +26,9 @@ export class ContactListComponent implements OnInit {
           this.contacts = contacts;
         }
       );
-    this.contacts = this.contactService.getContacts();
+    // this.contacts = this.contactService.getContacts();
+  }
+  onKeyPress(value: string) {
+    this.term = value;
   }
 }
