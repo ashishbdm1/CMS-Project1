@@ -1,5 +1,4 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { MOCKDOCUMENTS } from './MOCKDOCUMENTS';
 import { Document } from './document.model';
 import { Subject } from 'rxjs/Subject';
 import { HttpClient, HttpHeaders, HttpResponse} from "@angular/common/http";
@@ -16,14 +15,12 @@ export class DocumentsService {
   private documents: Document[] = [];
   maxId: any;
   maxDocumentId: number;
-  // subscription: Subscription;
 
   addDocument(newDoc: Document){
     if (newDoc) {
       newDoc.id = `${this.maxId++}`;
       this.documents.push(newDoc);
       let documentsClone = this.documents.slice();
-      //this.documentListChangedEvent.next(documentsClone);
       this.storeDocuments();
     }
   }
@@ -51,7 +48,6 @@ export class DocumentsService {
         newDoc.id = originalDoc.id;
         this.documents[pos] = newDoc;
 
-        // let documentsClone = this.documents.slice();
         this.storeDocuments();
       }
     }
