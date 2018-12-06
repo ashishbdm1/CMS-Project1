@@ -1,4 +1,3 @@
-//import allows to import other modules into our module
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
