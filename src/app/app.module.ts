@@ -27,6 +27,8 @@ import { FormsModule } from '@angular/forms';
 import { DndModule } from 'ng2-dnd';
 import { ContactsFilterPipe } from './contacts/contacts-filter.pipe'
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+import { ContactService } from './contacts/contact.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,10 +58,10 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    DndModule.forRoot()
+    DndModule.forRoot(),
+    HttpClientModule
   ],
-  providers: [MessageListService, WindRefService, ContactDetailComponent],
+  providers: [MessageListService, ContactService, WindRefService, ContactDetailComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

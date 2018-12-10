@@ -6,6 +6,7 @@ import { Message } from './message.model'
   providedIn: 'root'
 })
 export class MessagesService {
+  [x: string]: any;
   messages: Message[] = [];
 
   addMessage(message: Message){
