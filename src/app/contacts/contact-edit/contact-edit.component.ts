@@ -10,7 +10,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./contact-edit.component.css']
 })
 export class ContactEditComponent implements OnInit {
-  contact: Contact = null;
+  contact: Contact = null; 
   originalContact: Contact;
   groupContacts: Contact[] = [];
   editMode: boolean = false;
